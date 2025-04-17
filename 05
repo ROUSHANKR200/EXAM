@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+class Matrix {
+    int mat[3][3];
+
+public:
+    void getMatrix() {
+        cout << "Enter elements of 3x3 matrix:\n";
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                cin >> mat[i][j];
+    }
+
+    Matrix multiply(Matrix m) {
+        Matrix result;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                result.mat[i][j] = 0;
+                for (int k = 0; k < 3; k++) {
+                    result.mat[i][j] += mat[i][k] * m.mat[k][j];
+                }
+            }
+        }
+
+        return result;
+    }
+
+    void display() {
+        cout << "Resultant 3x3 Matrix:\n";
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++)
+                cout << mat[i][j] << " ";
+            cout << endl;
+        }
+    }
+};
+
+int main() {
+    Matrix A, B, C;
+
+    A.getMatrix();
+    B.getMatrix();
+
+    C = A.multiply(B);
+    C.display();
+
+    return 0;
+}
