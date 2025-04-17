@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+    string name;
+    int roll;
+    int percentage;
+
+public:
+    void add() {
+        name = "Rahul";
+        roll = 101;
+        percentage = 87;
+    }
+
+    void show() {
+        cout << "Name: " << name << endl;
+        cout << "Roll No: " << roll << endl;
+        cout << "Percentage: " << percentage << "%" << endl;
+    }
+};
+
+int main() {
+    Student s;
+    Student* p = &s;
+
+    p->add();
+    p->show();
+
+    return 0;
+}
