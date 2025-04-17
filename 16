@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+class Number {
+    int a = 3, b = 4;
+    friend class Sum;
+};
+
+class Sum {
+public:
+    void show(Number n) {
+        cout << n.a << " + " << n.b << " = " << (n.a + n.b) << endl;
+    }
+};
+
+int main() {
+    Number obj;
+    Sum s;
+    s.show(obj);
+    return 0;
+}
