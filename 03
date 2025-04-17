@@ -1,0 +1,18 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+
+class calculatepower {
+public:
+    double power(double m, int n = 2) {
+        double result = pow(m,n);
+        return result;
+    }
+};
+
+int main() {
+    calculatepower ob;
+    cout << "Power(5): " << ob.power(5) << endl;         // 5^2 = 25
+    cout << "Power(2.5, 3): " << ob.power(2.5, 3) << endl; // 2.5^3 = 15.625
+    return 0;
+}
