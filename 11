@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class ObjectTracker {
+    static int count;  // Static data member to keep track of number of objects
+
+public:
+    // Constructor to increment count when an object is created
+    ObjectTracker() {
+        count++;
+        cout << "Object created. Total active objects: " << count << endl;
+    }
+
+    // Destructor to decrement count when an object is destroyed
+    ~ObjectTracker() {
+        count--;
+        cout << "Object destroyed. Total active objects: " << count << endl;
+    }
+
+    // Static function to get the current count of active objects
+    static int getActiveObjects() {
+        return count;
+    }
+};
+
+// Initialize the static member count
+int ObjectTracker::count = 0;
+
+int main() {
+    // Create objects and track active object count
+    ObjectTracker obj1;  // Active objects: 1
+    ObjectTracker obj2;  // Active objects: 2
+    ObjectTracker obj3;  // Active objects: 3
+
+    cout << "Active objects after creation: " << ObjectTracker::getActiveObjects() << endl;
+
+    {
+        ObjectTracker obj4;  // Active objects: 4
+        cout << "Active objects inside block: " << ObjectTracker::getActiveObjects() << endl;
+    }
+
+    cout << "Active objects after block scope: " << ObjectTracker::getActiveObjects() << endl;
+
+    return 0;
+}
