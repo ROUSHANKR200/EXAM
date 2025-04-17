@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+class Area {
+public:
+    // Area of rectangle
+    area(float length, float breadth) {
+        return length * breadth;
+    }
+
+    // Area of triangle
+    area(float base, float height, int) {
+        return 0.5 * base * height;
+    }
+
+    // Area of circle
+    area(int radius) {
+        return 3.14 * radius * radius;
+    }
+};
+
+int main() {
+    Area a;
+
+    cout << "Area of rectangle: " << a.area(10.0f, 5.0f) << endl;
+    cout << "Area of triangle: " << a.area(6.0f, 4.0f, 0) << endl;
+    cout << "Area of circle: " << a.area(7) << endl;
+
+    return 0;
+}
