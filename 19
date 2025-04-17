@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+class Demo {
+    int value;
+
+public:
+    Demo(int v = 0) {
+        value = v;
+    }
+
+    // Overload ++ (unary)
+    Demo operator++() {
+        value++;
+        return *this;
+    }
+
+    // Overload + (binary)
+    Demo operator+(Demo d) {
+        return Demo(value + d.value);
+    }
+
+    // Overload < (less than)
+    bool operator<(Demo d) {
+        return value < d.value;
+    }
+
+    // Overload = (assignment)
+    Demo operator=(Demo d) {
+        value = d.value;
+        return *this;
+    }
+
+    void show() {
+        cout << "Value: " << value << endl;
+    }
+};
+
+int main() {
+    Demo a(5), b(10), c;
+
+    cout << "Initial values:\n";
+    a.show();
+    b.show();
+
+    // Unary increment
+    ++a;
+    cout << "\nAfter ++a:\n";
+    a.show();
+
+    // Binary addition
+    c = a + b;
+    cout << "\nAfter c = a + b:\n";
+    c.show();
+
+    // Less than comparison
+    if (a < b)
+        cout << "\na is less than b\n";
+    else
+        cout << "\na is not less than b\n";
+
+    // Assignment
+    Demo d;
+    d = c;
+    cout << "\nAfter d = c:\n";
+    d.show();
+
+    return 0;
+}
