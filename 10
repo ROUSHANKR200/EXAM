@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+class Fibonacci {
+    int fibSeries[50];  // Array to store Fibonacci series
+    int size;
+
+public:
+    // Constructor to generate Fibonacci series up to 'n' terms
+    Fibonacci(int n) {
+        size = n;
+        fibSeries[0] = 0;
+        fibSeries[1] = 1;
+        for (int i = 2; i < size; i++) {
+            fibSeries[i] = fibSeries[i - 1] + fibSeries[i - 2];
+        }
+    }
+
+    // Function to display Fibonacci series
+    void display() {
+        for (int i = 0; i < size; i++) {
+            cout << fibSeries[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter number of Fibonacci terms: ";
+    cin >> n;
+
+    // Generate Fibonacci series using the constructor
+    Fibonacci fib1(n);
+
+    // Display the Fibonacci series
+    cout << "Fibonacci Series:\n";
+    fib1.display();
+
+    return 0;
+}
