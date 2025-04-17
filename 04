@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class TIME {
+    int hours, minutes, seconds;
+
+public:
+    void getTime() {
+        cout << "Enter hours, minutes, seconds: ";
+        cin >> hours >> minutes >> seconds;
+    }
+
+    void addTime(TIME t1, TIME t2) {
+        seconds = t1.seconds + t2.seconds;
+        minutes = t1.minutes + t2.minutes + (seconds / 60);
+        hours = t1.hours + t2.hours + (minutes / 60);
+
+        seconds %= 60;
+        minutes %= 60;
+    }
+
+    void displayTime() {
+        cout << "Total Time = " << hours << "h "
+             << minutes << "m " << seconds << "s" << endl;
+    }
+};
+
+int main() {
+    TIME t1, t2, result;
+    cout << "Enter first time:\n";
+    t1.getTime();
+    cout << "Enter second time:\n";
+    t2.getTime();
+
+    result.addTime(t1, t2);
+    result.displayTime();
+
+    return 0;
+}
