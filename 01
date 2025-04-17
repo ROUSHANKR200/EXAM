@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+class person
+{
+private:
+    char name[50];
+    char add[50];
+    int age;
+    float sallary;
+
+public:
+    inline void setdetail(){
+        cout<<"Enter Name:"<<endl;
+        cin.getline(name,50);
+        cout<<"Enter Address:"<<endl;
+        cin.getline(add, 50);
+        cout<<"Enter age:";
+        cin>>age;
+        cout<<"Enter Sallary";
+        cin>>sallary;
+    }
+    inline void displaydetail(){
+        cout<<"\n --------Person Detail-------"<<endl;
+        cout<<"Name: "<< name <<endl;
+        cout<<"Add: "<< add <<endl;
+        cout<<"Age: "<< age <<endl;
+        cout<<"Sallary: "<< sallary <<endl;
+
+    }
+};
+int main(){
+    person p;
+    p.setdetail();
+    p.displaydetail();
+}
